@@ -1,5 +1,7 @@
-package com.xworkz.cafeCorner.initializer;
+package com.xworkz.cafeCorner.webinit;
 
+import com.xworkz.cafeCorner.config.CafeConfig;
+import com.xworkz.cafeCorner.config.CafeWebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -14,7 +16,7 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+        return new Class[]{CafeConfig.class, CafeWebConfig.class};
     }
 
     @Override
