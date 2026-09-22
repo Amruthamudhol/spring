@@ -5,6 +5,10 @@ import com.xworkz.speaker.configuration.ApplicationConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ApplicationInit extends AbstractAnnotationConfigDispatcherServletInitializer {
+    public ApplicationInit() {
+        System.out.println("ApplicationInit is created");
+    }
+
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[0];
@@ -17,6 +21,6 @@ public class ApplicationInit extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};
+        return new String[]{"/click"};
     }
 }
