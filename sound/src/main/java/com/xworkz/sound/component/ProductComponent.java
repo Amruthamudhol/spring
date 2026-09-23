@@ -2,6 +2,7 @@ package com.xworkz.sound.component;
 
 import com.xworkz.sound.dto.ProductDTO;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
@@ -13,9 +14,10 @@ public class ProductComponent {
     }
 
     @RequestMapping("/product")
-    public String onProduct(ProductDTO productDTO) {
+    public String onProduct(ProductDTO productDTO, Model model) {
         System.out.println("running product()");
         System.out.println("ProductDto-->"+productDTO);
+        model.addAttribute("message", "Product added successfully");
         return "/Product.jsp";
     }
 }

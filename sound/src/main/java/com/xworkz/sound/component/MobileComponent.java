@@ -2,6 +2,7 @@ package com.xworkz.sound.component;
 
 import com.xworkz.sound.dto.MobileDTO;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -13,9 +14,10 @@ public class MobileComponent {
     }
 
     @RequestMapping("/mobile")
-    public String onMobile(MobileDTO mobileDTO) {
+    public String onMobile(MobileDTO mobileDTO, Model model) {
         System.out.println("running mobile()");
         System.out.println("MobileDto-->"+mobileDTO);
+        model.addAttribute("message", "Mobile details saved successfully!");
         return "/Mobile.jsp";
     }
 }

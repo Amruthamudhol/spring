@@ -2,6 +2,7 @@ package com.xworkz.sound.component;
 
 import com.xworkz.sound.dto.MovieDTO;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
@@ -12,9 +13,10 @@ public class MovieComponent {
     }
 
     @RequestMapping("/movie")
-    public String onMovie(MovieDTO movieDTO) {
+    public String onMovie(MovieDTO movieDTO, Model model) {
         System.out.println("running movie()");
         System.out.println("MovieDto-->"+movieDTO);
+        model.addAttribute("message", "Movie added successfully");
         return "/Movie.jsp";
     }
 }

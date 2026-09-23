@@ -74,6 +74,8 @@
         <button type="submit">Register</button>
 
     </form>
+    <div class="alert alert-success mt-3">  ${message}</div>
+
 
 </div>
 <div class="text-center mt-4 mb-4">

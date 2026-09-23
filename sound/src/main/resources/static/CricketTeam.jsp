@@ -102,6 +102,10 @@
 
                     </form>
 
+                    <div class="alert alert-success mt-3">
+                        ${message}
+                    </div>
+
                 </div>
 
             </div>

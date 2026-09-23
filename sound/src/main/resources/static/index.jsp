@@ -47,7 +47,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Cricket Team</h5>
-                    <a href="cricketTeam" class="btn btn-primary mt-2">
+                    <a href="CricketTeam.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -58,7 +58,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Product</h5>
-                    <a href="product" class="btn btn-primary mt-2">
+                    <a href="Product.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -69,7 +69,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Place</h5>
-                    <a href="place" class="btn btn-primary mt-2">
+                    <a href="Place.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -80,7 +80,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Contact</h5>
-                    <a href="contact" class="btn btn-primary mt-2">
+                    <a href="Contact.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -91,7 +91,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Movie</h5>
-                    <a href="movie" class="btn btn-primary mt-2">
+                    <a href="Movie.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -102,7 +102,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Telephone Operator</h5>
-                    <a href="telephoneOperator" class="btn btn-primary mt-2">
+                    <a href="TelephoneOperator.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -113,7 +113,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Camera</h5>
-                    <a href="camera" class="btn btn-primary mt-2">
+                    <a href="Camera.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -124,7 +124,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Mobile</h5>
-                    <a href="mobile" class="btn btn-primary mt-2">
+                    <a href="Mobile.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -135,7 +135,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Temple</h5>
-                    <a href="temple" class="btn btn-primary mt-2">
+                    <a href="Temple.jsp" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
