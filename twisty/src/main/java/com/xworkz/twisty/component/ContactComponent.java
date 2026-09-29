@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Component
 @RequestMapping("/")
 public class ContactComponent {
@@ -19,7 +21,7 @@ public class ContactComponent {
     }
 
     @RequestMapping("/contact")
-    public String onContact(ContactDTO contactDTO, Model model) {
+    public String onContact(@Valid ContactDTO contactDTO, Model model) {
         System.out.println("running contact()");
         System.out.println("ContactDto-->"+contactDTO);
         this.contactService.validateAndSave(contactDTO);

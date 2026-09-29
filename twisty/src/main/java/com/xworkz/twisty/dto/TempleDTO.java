@@ -10,10 +10,14 @@ import javax.validation.constraints.Size;
 @ToString
 @Getter
 @Setter
-public class PlaceDTO {
+public class TempleDTO {
     @NotNull
     @Size(min = 3, max = 30)
-    private String placeName;
+    private String templeName;
+
+    @NotNull
+    @Size(min = 3, max = 30)
+    private String location;
 
     @NotNull
     @Size(min = 3, max = 30)
@@ -21,10 +25,5 @@ public class PlaceDTO {
 
     @NotNull
     @Size(min = 3, max = 30)
-    private String state;
-
-    public PlaceDTO() {
-        System.out.println("created PlaceDTO");
-    }
-
+    private String godName;
 }

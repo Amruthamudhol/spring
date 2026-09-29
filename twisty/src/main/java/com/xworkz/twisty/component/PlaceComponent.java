@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Component
 @RequestMapping("/")
 public class PlaceComponent {
@@ -19,7 +21,7 @@ public class PlaceComponent {
     }
 
     @RequestMapping("/place")
-    public String onPlace(PlaceDTO placeDTO, Model model) {
+    public String onPlace(@Valid PlaceDTO placeDTO, Model model) {
         System.out.println("running place()");
         System.out.println("PlaceDto-->"+placeDTO);
         this.placeService.validateAndSave(placeDTO);

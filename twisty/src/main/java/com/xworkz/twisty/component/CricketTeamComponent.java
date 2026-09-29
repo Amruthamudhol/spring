@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Component
 @RequestMapping("/")
 public class CricketTeamComponent {
@@ -19,7 +21,7 @@ public class CricketTeamComponent {
     }
 
     @RequestMapping("/cricketTeam")
-    public String onCricketTeam(CricketTeamDTO cricketTeamDTO, Model model) {
+    public String onCricketTeam(@Valid CricketTeamDTO cricketTeamDTO, Model model) {
         System.out.println("running cricketTeam()");
         System.out.println("CricketTeamDto-->"+cricketTeamDTO);
         this.cricketTeamService.validateAndSave(cricketTeamDTO);

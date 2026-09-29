@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Component
 @RequestMapping("/")
 public class MovieComponent {
@@ -19,7 +21,7 @@ public class MovieComponent {
     }
 
     @RequestMapping("/movie")
-    public String onMovie(MovieDTO movieDTO, Model model) {
+    public String onMovie(@Valid MovieDTO movieDTO, Model model) {
         System.out.println("running movie()");
         System.out.println("MovieDto-->"+movieDTO);
         this.movieService.validateAndSave(movieDTO);

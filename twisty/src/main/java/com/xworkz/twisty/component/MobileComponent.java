@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 
 @Component
 @RequestMapping("/")
@@ -20,7 +22,7 @@ public class MobileComponent {
     }
 
     @RequestMapping("/mobile")
-    public String onMobile(MobileDTO mobileDTO, Model model) {
+    public String onMobile(@Valid MobileDTO mobileDTO, Model model) {
         System.out.println("running mobile()");
         System.out.println("MobileDto-->"+mobileDTO);
         this.mobileService.validateAndSave(mobileDTO);

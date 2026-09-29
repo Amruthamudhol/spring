@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 
 @Component
 @RequestMapping("/")
@@ -20,7 +22,7 @@ public class TelephoneComponent {
     }
 
     @RequestMapping("/telephoneOperator")
-    public String onTelephoneOperator(TelephoneDTO telephoneDTO, Model model) {
+    public String onTelephoneOperator(@Valid TelephoneDTO telephoneDTO, Model model) {
         System.out.println("running telephoneOperator()");
         System.out.println("TelephoneDto-->"+telephoneDTO);
         this.telephoneService.validateAndSave(telephoneDTO);

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Component
 @RequestMapping("/")
 public class CameraComponent {
@@ -24,7 +26,7 @@ public class CameraComponent {
 
 
     @RequestMapping("/camera")
-    public String onCamera(CameraDTO cameraDTO, Model model) {
+    public String onCamera(@Valid CameraDTO cameraDTO, Model model) {
         System.out.println("running camera()");
         System.out.println("CameraDto-->"+cameraDTO);
         this.cameraService.validateAndSave(cameraDTO);

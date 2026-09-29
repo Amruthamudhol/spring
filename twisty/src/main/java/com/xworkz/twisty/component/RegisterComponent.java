@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Component
 @RequestMapping("/")
 public class RegisterComponent {
@@ -19,7 +21,7 @@ public class RegisterComponent {
     }
 
     @RequestMapping("/register")
-    public String onRegister(RegisterDTO registerDTO, Model model) {
+    public String onRegister(@Valid RegisterDTO registerDTO, Model model) {
         System.out.println("running register()");
         System.out.println("RegisterDto-->"+registerDTO);
         this.registerService.validateAndSave(registerDTO);
