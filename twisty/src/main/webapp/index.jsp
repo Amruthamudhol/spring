@@ -142,7 +142,18 @@
             </div>
         </div>
 
-    </div>
+
+     <div class="col-md-4">
+                <div class="card text-center shadow-sm h-100">
+                    <div class="card-body">
+                        <h5>Vehicle</h5>
+                        <a href="Vehicle.jsp" class="btn btn-primary mt-2">
+                            Open
+                        </a>
+                    </div>
+                </div>
+            </div>
+      </div>
 
 </div>
 

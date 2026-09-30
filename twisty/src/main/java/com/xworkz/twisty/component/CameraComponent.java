@@ -6,6 +6,7 @@ import com.xworkz.twisty.service.CamearaSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
@@ -26,7 +27,7 @@ public class CameraComponent {
 
 
     @RequestMapping("/camera")
-    public String onCamera(@Valid CameraDTO cameraDTO, Model model) {
+    public String onCamera(@Valid CameraDTO cameraDTO, Model model, BindingResult bindingResult) {
         System.out.println("running camera()");
         System.out.println("CameraDto-->"+cameraDTO);
         this.cameraService.validateAndSave(cameraDTO);

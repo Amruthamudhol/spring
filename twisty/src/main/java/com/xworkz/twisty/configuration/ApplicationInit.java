@@ -9,7 +9,7 @@ public class ApplicationInit extends AbstractAnnotationConfigDispatcherServletIn
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/camera","/contact","/product","/telephoneOperator","/movie","/temple","/register","/cricketTeam","/mobile","/place"};
+        return new String[]{"/camera","/contact","/product","/telephoneOperator","/movie","/temple","/register","/cricketTeam","/mobile","/place","/vehicle"};
     }
 
     @Override
