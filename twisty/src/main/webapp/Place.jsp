@@ -1,5 +1,7 @@
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,7 +11,11 @@
           rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body style="background-image: url('${pageContext.request.contextPath}/images/place.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;">
 
 <div class="container mt-5">
 
@@ -45,24 +51,18 @@
                                    placeholder="Enter city">
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">State</label>
+                       <div class="mb-3">
+                           <label class="form-label">State</label>
 
-                            <select name="state" class="form-select">
+                           <select name="state" class="form-select">
 
-                                <option value="">
-                                    -- Select State --
-                                </option>
+                               <option value="">-- Select State --</option>
+                               <c:forEach items="${states}" var="state">
+                                   <option value="${state}">   ${state} </option>
+                               </c:forEach>
 
-                                <option value="Karnataka">Karnataka</option>
-                                <option value="Maharashtra">Maharashtra</option>
-                                <option value="Tamil Nadu">Tamil Nadu</option>
-                                <option value="Kerala">Kerala</option>
-                                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                <option value="Telangana">Telangana</option>
-
-                            </select>
-                        </div>
+                           </select>
+                       </div>
 
                         <div class="d-grid mt-4">
 
@@ -75,6 +75,21 @@
 
                     </form>
 
+                     <!-- Validation Errors -->
+                                        <c:if test="${not empty validationErrors}">
+
+                                            <div class="mt-3">
+
+                                                <c:forEach items="${validationErrors}"  var="objectError">
+                                                    <p class="text-danger mb-1">
+                                                        ${objectError.defaultMessage}
+                                                    </p>
+
+                                                </c:forEach>
+
+                                            </div>
+
+                                        </c:if>
                     <div class="alert alert-success mt-3">
                         ${message}
                     </div>

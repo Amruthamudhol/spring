@@ -9,7 +9,11 @@
           rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body style="background-image: url('${pageContext.request.contextPath}/images/movie.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;">
 
 <div class="container mt-5">
 
@@ -62,46 +66,22 @@
                                        placeholder="Enter director name">
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">
-                                    Language
-                                </label>
+                           <div class="col-md-6 mb-3">
+                               <label class="form-label">
+                                   Language
+                               </label>
 
-                                <select name="language" class="form-select">
+                               <select name="language" class="form-select">
 
-                                    <option value="">
-                                        -- Select Language --
-                                    </option>
+                                   <option value=""> --Select Language --  </option>
 
-                                    <option value="Kannada">
-                                        Kannada
-                                    </option>
+                                   <c:forEach items="${languages}" var="language">
+                                       <option value="${language}"> ${language}
+                                       </option>
+                                   </c:forEach>
 
-                                    <option value="Hindi">
-                                        Hindi
-                                    </option>
-
-                                    <option value="English">
-                                        English
-                                    </option>
-
-                                    <option value="Telugu">
-                                        Telugu
-                                    </option>
-
-                                    <option value="Tamil">
-                                        Tamil
-                                    </option>
-
-                                    <option value="Malayalam">
-                                        Malayalam
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
+                               </select>
+                           </div>
 
                         <div class="text-center mt-3">
 
@@ -118,6 +98,19 @@
                         </div>
 
                     </form>
+                     <!-- Validation Errors -->
+                                <c:if test="${not empty validationErrors}">
+
+                                        <div class="mt-3">
+
+                                             <c:forEach items="${validationErrors}"  var="objectError">
+                                                      <p class="text-danger mb-1">
+                                                           ${objectError.defaultMessage}  </p>
+                                               </c:forEach>
+
+                                             </div>
+
+                                       </c:if>
 
                     <div class="alert alert-success mt-3">
                         ${message}

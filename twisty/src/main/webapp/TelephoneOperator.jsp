@@ -9,7 +9,11 @@
           rel="stylesheet">
 </head>
 
-<body>
+<body style="background-image: url('${pageContext.request.contextPath}/images/Telephone.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;">
 
 <div class="container mt-5">
 

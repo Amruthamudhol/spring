@@ -10,7 +10,11 @@
           rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body style="background-image: url('${pageContext.request.contextPath}/images/camera.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;">
 
 <div class="container mt-5">
 
@@ -27,6 +31,7 @@
                 <div class="card-body">
 
                     <form action="camera" method="post">
+
 
                         <div class="mb-3">
                             <label class="form-label">Camera Name:</label>

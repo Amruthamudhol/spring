@@ -20,90 +20,127 @@
 
             <div class="card shadow">
 
+                <!-- Header -->
                 <div class="card-header bg-primary text-white text-center">
                     <h3>Vehicle Registration</h3>
                 </div>
 
                 <div class="card-body">
 
-                    <form action="vehicle" method="post">
-                      <div class="alert alert-success mt-3">  ${message}  </div>
+                    <!-- Success Message -->
+                    <c:if test="${not empty message}">
+                        <div class="alert alert-success">
+                            ${message}
+                        </div>
+                    </c:if>
+
+<body style="background-image: url('${pageContext.request.contextPath}/images/vehicle.jpeg');
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+             min-height: 100vh;">
+
+                    <!-- Vehicle Form -->
+                    <form action="${pageContext.request.contextPath}/vehicle"  method="post">
+
                         <!-- Vehicle Number -->
                         <div class="mb-3">
                             <label class="form-label">Vehicle Number</label>
+
                             <input type="text"
                                    name="vehicleNumber"
                                    class="form-control"
-                                   placeholder="Enter vehicle number" required
-                                   value="${vehicleDTO.vehicleNumber}"/>
+                                   placeholder="Enter vehicle number"
+                                   value="${vehicleDTO.vehicleNumber}"
+                                   required>
                         </div>
 
                         <!-- Vehicle Model -->
                         <div class="mb-3">
                             <label class="form-label">Vehicle Model</label>
+
                             <input type="text"
                                    name="vehicleModel"
                                    class="form-control"
                                    placeholder="Enter vehicle model"
-                                   required
-                                   value="${vehicleDTO.vehicleModel}"/>
+                                   value="${vehicleDTO.vehicleModel}"
+                                   required>
                         </div>
 
                         <!-- Vehicle Brand -->
                         <div class="mb-3">
                             <label class="form-label">Vehicle Brand</label>
+
                             <input type="text"
                                    name="vehicleBrand"
                                    class="form-control"
                                    placeholder="Enter vehicle brand"
-                                   required
-                                   value="${vehicleDTO.vehicleBrand}"/>
+                                   value="${vehicleDTO.vehicleBrand}"
+                                   required>
                         </div>
 
                         <!-- Rental Amount -->
                         <div class="mb-3">
                             <label class="form-label">Rental Amount</label>
+
                             <input type="number"
-                                  name="rentalAmount"
+                                   name="rentalAmount"
                                    class="form-control"
                                    placeholder="Enter rental amount"
                                    min="1"
                                    step="0.01"
-                                   required
-                                   value="${vehicleDTO.rentalAmount}"/>
+                                   value="${vehicleDTO.rentalAmount}"
+                                   required>
                         </div>
 
                         <!-- Availability -->
                         <div class="mb-3">
                             <label class="form-label">Availability</label>
+                          <select name="availability">
 
-                            <select name="availability" class="form-select" required>
-                                <option value="">Select Availability</option>
-                                <option value="true">Available</option>
-                                <option value="false">Not Available</option>
-                            </select>
+                              <c:forEach items="${availability}" var="available">
+                                  <option value="${available}">${available}</option>
+                              </c:forEach>
 
+                          </select>
                         </div>
 
-                        <!-- Submit -->
+                        <!-- Submit Button -->
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit"
+                                    class="btn btn-primary">
                                 Register Vehicle
                             </button>
                         </div>
 
                     </form>
 
-                    <c:forEach items="${validationErrors}" var="objectError">
-                     <p class="text-danger">${objectError.defaultMessage}</p>
-                    </c:forEach>
+                    <!-- Validation Errors -->
+                    <c:if test="${not empty validationErrors}">
 
+                        <div class="mt-3">
+
+                            <c:forEach items="${validationErrors}"  var="objectError">
+                                <p class="text-danger mb-1">
+                                    ${objectError.defaultMessage}
+                                </p>
+
+                            </c:forEach>
+
+                        </div>
+
+                    </c:if>
 
                 </div>
             </div>
 
         </div>
 
+    </div>
+    <div class="text-center mt-4 mb-4">
+        <a href="index.jsp" class="btn btn-outline-primary">
+            Go Back to Home
+        </a>
     </div>
 
 </div>
