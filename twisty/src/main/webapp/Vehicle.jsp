@@ -93,17 +93,17 @@
                                    required>
                         </div>
 
-                        <!-- Availability -->
-                        <div class="mb-3">
-                            <label class="form-label">Availability</label>
-                          <select name="availability">
+                       <!-- Availability -->
+                       <div class="mb-3">
+                           <label class="form-label">Availability</label>
 
-                              <c:forEach items="${availability}" var="available">
-                                  <option value="${available}">${available}</option>
-                              </c:forEach>
+                           <select name="availability" class="form-select">
+                               <c:forEach items="${availability}" var="available">
+                                   <option ${available == vehicleDTO.availability ? 'selected' : '' } value="${available}">${available} </option>
+                               </c:forEach>
+                           </select>
+                       </div>
 
-                          </select>
-                        </div>
 
                         <!-- Submit Button -->
                         <div class="text-center">
@@ -116,20 +116,16 @@
                     </form>
 
                     <!-- Validation Errors -->
-                    <c:if test="${not empty validationErrors}">
 
                         <div class="mt-3">
-
-                            <c:forEach items="${validationErrors}"  var="objectError">
+                            <c:forEach items="${validationErrors}" var="objectError">
                                 <p class="text-danger mb-1">
                                     ${objectError.defaultMessage}
                                 </p>
-
                             </c:forEach>
-
                         </div>
 
-                    </c:if>
+
 
                 </div>
             </div>

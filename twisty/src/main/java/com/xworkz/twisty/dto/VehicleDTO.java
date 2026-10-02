@@ -26,5 +26,5 @@ public class VehicleDTO {
     private Double rentalAmount;
 
     @NotNull(message = "Availability is required")
-    private Boolean availability;
+    private String availability;
 }

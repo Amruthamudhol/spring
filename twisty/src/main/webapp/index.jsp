@@ -69,7 +69,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Place</h5>
-                    <a href="Place.jsp" class="btn btn-primary mt-2">
+                    <a href="place" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -91,7 +91,7 @@
             <div class="card text-center shadow-sm h-100">
                 <div class="card-body">
                     <h5>Movie</h5>
-                    <a href="Movie.jsp" class="btn btn-primary mt-2">
+                    <a href="movie" class="btn btn-primary mt-2">
                         Open
                     </a>
                 </div>
@@ -147,7 +147,7 @@
                 <div class="card text-center shadow-sm h-100">
                     <div class="card-body">
                         <h5>Vehicle</h5>
-                        <a href="Vehicle.jsp" class="btn btn-primary mt-2">
+                        <a href="vehicle" class="btn btn-primary mt-2">
                             Open
                         </a>
                     </div>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,8 +19,17 @@ import java.util.stream.Stream;
 @RequestMapping("/vehicle")
 public class VehicleComponent {
 
+    private List<String> availability;
+
+
     public VehicleComponent() {
-        System.out.println("VehicleComponent created");
+        System.out.println("VehicleComponent create");
+    }
+
+    @PostConstruct
+    public void oninit(){
+        availability = Stream.of("Available", "Not Available").collect(Collectors.toList());
+
     }
 
     @PostMapping
@@ -33,6 +43,7 @@ public class VehicleComponent {
             model.addAttribute("validationErrors", errors);
             model.addAttribute("vehicleDTO", vehicleDTO);
 
+
         } else {
 
             model.addAttribute("message", "Vehicle registered successfully");
@@ -40,7 +51,7 @@ public class VehicleComponent {
             System.out.println(vehicleDTO);
             model.addAttribute("vehicleDTO", new VehicleDTO());
         }
-
+        model.addAttribute("availability", availability);
         return "Vehicle.jsp";
     }
 
@@ -49,7 +60,6 @@ public class VehicleComponent {
     public String onVehicle(Model model) {
 
         System.out.println("running onVehicle(), loading Vehicle.jsp");
-        List<String> availability = Stream.of("Available", "Not Available").collect(Collectors.toList());
 
         model.addAttribute("availability", availability);
         return "Vehicle.jsp";

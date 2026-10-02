@@ -5,29 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d83840b-df75-4356-adbf-0fe47ae6f6d7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/configuration/WebConfigurator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/Telephone.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/camera.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/cricket.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/mobile.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/movie.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/place.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/temple.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/vehicle.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/MovieComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/MovieComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/PlaceComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/PlaceComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/VehicleComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/VehicleComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/MovieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/MovieDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/PlaceDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/PlaceDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Camera.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Camera.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CricketTeam.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CricketTeam.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Mobile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Mobile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Movie.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Movie.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Place.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Place.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/TelephoneOperator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/TelephoneOperator.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Temple.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Temple.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/VehicleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/VehicleDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Vehicle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Vehicle.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,20 +68,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Smart Tomcat.Tomcat: twisty.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/spring/twisty/src/main/webapp/images",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Smart Tomcat.Tomcat: twisty.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/spring/twisty/src/main/webapp/images&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\spring\twisty\src\main\webapp\images" />
