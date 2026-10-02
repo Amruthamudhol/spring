@@ -11,14 +11,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
-@RequestMapping("/")
+@RequestMapping("/place")
 public class PlaceComponent {
+
+    private List<String> states;
 
     @Autowired
     private PlaceService placeService;
@@ -27,7 +30,12 @@ public class PlaceComponent {
         System.out.println("PlaceComponent Created");
     }
 
-    @PostMapping("/place")
+    @PostConstruct
+    public void oninIt(){
+        states = Stream.of("Karnataka", "Maharashtra", "Tamil Nadu", "Kerala", "Andhra Pradesh", "Telangana").collect(Collectors.toList());
+    }
+
+    @PostMapping
     public String onPlaceSubmit(Model model, @Valid PlaceDTO placeDTO, BindingResult bindingResult) {
         System.out.println("running onPlaceSubmit()");
         System.out.println("PlaceDTO-->" + placeDTO);
@@ -39,21 +47,25 @@ public class PlaceComponent {
             model.addAttribute("validationErrors", errors);
             model.addAttribute("placeDTO", placeDTO);
 
+
         } else {
             model.addAttribute("message", "Place registered successfully");
             System.out.println("no validation errors");
             System.out.println(placeDTO);
+            this.placeService.validateAndSave(placeDTO);
+
             model.addAttribute("placeDTO", new PlaceDTO());
+            model.addAttribute("states", states);
         }
 
         return "Place.jsp";
     }
 
-    @GetMapping("/place")
+    @GetMapping
     public String onPlace(Model model) {
 
         System.out.println("running onPlace(), loading Place.jsp");
-        List<String> states = Stream.of("Karnataka", "Maharashtra", "Tamil Nadu", "Kerala", "Andhra Pradesh", "Telangana").collect(Collectors.toList());
+
         model.addAttribute("states", states);
 
         return "Place.jsp";

@@ -1,6 +1,8 @@
 package com.xworkz.twisty.component;
 
 import com.xworkz.twisty.dto.VehicleDTO;
+import com.xworkz.twisty.service.VehicleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +20,9 @@ import java.util.stream.Stream;
 @Component
 @RequestMapping("/vehicle")
 public class VehicleComponent {
+
+    @Autowired
+    private VehicleService vehicleService;
 
     private List<String> availability;
 
@@ -49,6 +54,7 @@ public class VehicleComponent {
             model.addAttribute("message", "Vehicle registered successfully");
             System.out.println("no validation errors");
             System.out.println(vehicleDTO);
+            this.vehicleService.validateAndSave(vehicleDTO);
             model.addAttribute("vehicleDTO", new VehicleDTO());
         }
         model.addAttribute("availability", availability);

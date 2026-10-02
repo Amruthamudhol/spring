@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class TempleServiceImpl implements TempleService {
     @Override
-    public void validateAndSave(TempleDTO templeDTO) {
+    public boolean validateAndSave(TempleDTO templeDTO) {
         System.out.println("running validateAndSave() in TempleServiceImpl");
-        System.out.println("TempleDto-->"+templeDTO);
 
+
+        return false;
     }
 }

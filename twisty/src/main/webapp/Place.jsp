@@ -36,19 +36,21 @@
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
 
-                            <input type="text"
-                                   name="placeName"
-                                   class="form-control"
-                                   placeholder="Enter place name">
+                             <input type="text"
+                                       name="placeName"
+                                       class="form-control"
+                                       placeholder="Enter place name"
+                                       value="${placeDTO.placeName}">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">City</label>
 
-                            <input type="text"
-                                   name="city"
-                                   class="form-control"
-                                   placeholder="Enter city">
+                             <input type="text"
+                                       name="city"
+                                       class="form-control"
+                                       placeholder="Enter city"
+                                       value="${placeDTO.city}">
                         </div>
 
                        <div class="mb-3">
@@ -58,7 +60,10 @@
 
                                <option value="">-- Select State --</option>
                                <c:forEach items="${states}" var="state">
-                                   <option value="${state}">   ${state} </option>
+                                  <option value="${state}"
+                                                  ${state == placeDTO.state ? 'selected' : ''}>
+                                              ${state}
+                                          </option>
                                </c:forEach>
 
                            </select>

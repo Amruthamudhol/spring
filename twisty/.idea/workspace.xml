@@ -5,11 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d83840b-df75-4356-adbf-0fe47ae6f6d7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/repo/PlaceRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/repo/VehicleRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/repo/impl/PlaceRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/repo/impl/VehicleRepoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/VehicleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/impl/VehicleServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/PlaceComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/PlaceComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/VehicleComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/component/VehicleComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/VehicleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/dto/VehicleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Vehicle.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Vehicle.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/TempleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/TempleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/impl/PlaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/impl/PlaceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/impl/TempleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xworkz/twisty/service/impl/TempleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Place.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Place.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +42,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>

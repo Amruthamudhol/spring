@@ -23,8 +23,6 @@ public class PlaceDTO {
     @Size(min = 3, max = 30,message = "State name should select")
     private String state;
 
-    public PlaceDTO() {
-        System.out.println("created PlaceDTO");
-    }
+
 
 }
