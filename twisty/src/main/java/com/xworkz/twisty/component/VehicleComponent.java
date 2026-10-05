@@ -33,6 +33,7 @@ public class VehicleComponent {
 
     @PostConstruct
     public void oninit(){
+        System.out.println("running oninit()");
         availability = Stream.of("Available", "Not Available").collect(Collectors.toList());
 
     }
