@@ -49,7 +49,7 @@ public class DataBaseConfiguration {
         // Hibernate
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
-     
+
         return entityManagerFactoryBean;
     }
 

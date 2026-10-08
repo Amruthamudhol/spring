@@ -17,12 +17,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/wine")
-public class WineController {
+public class WineComponent {
     @Autowired
     private WineService wineService;
 
-    public WineController() {
-        System.out.println("WineController create");
+    public WineComponent() {
+        System.out.println("WineComponent create");
     }
 
 

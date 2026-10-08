@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -25,7 +26,7 @@ public class WineDTO {
         @NotNull
         @Past
         @DateTimeFormat(pattern = "yyyy-MM-dd")
-        private Date manfDate;
+        private LocalDate manfDate;
 
         @NotNull
         @DecimalMin(value = "0.1")

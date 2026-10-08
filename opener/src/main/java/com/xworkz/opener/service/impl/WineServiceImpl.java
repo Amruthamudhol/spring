@@ -1,22 +1,33 @@
 package com.xworkz.opener.service.impl;
 
 import com.xworkz.opener.dto.WineDTO;
+import com.xworkz.opener.entity.WineEntity;
 import com.xworkz.opener.repo.WineRepo;
 import com.xworkz.opener.service.WineService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class WineServiceImpl implements WineService {
 
     @Autowired
     private WineRepo wineRepo;
 
     @Override
-    public void validateAndSave(WineDTO wineDTO) {
+    public boolean validateAndSave(WineDTO wineDTO) {
         System.out.println("running validateAndSave()");
-       this. wineRepo.save(wineDTO);
+        if (wineDTO!=null){
+            System.out.println("Converting dto into entity");
+            WineEntity wineEntity = new WineEntity();
+           BeanUtils.copyProperties(wineDTO, wineEntity);
+            this. wineRepo.save(wineEntity);
+            return true;
+        }
 
+
+            return false;
     }
 }
