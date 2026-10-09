@@ -2,15 +2,15 @@ package com.xworkz.opener.controller;
 
 import com.xworkz.opener.dto.WineDTO;
 import com.xworkz.opener.service.WineService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/wine")
 public class WineComponent {
+
     @Autowired
     private WineService wineService;
 
@@ -25,16 +26,17 @@ public class WineComponent {
         System.out.println("WineComponent create");
     }
 
-
-
     @PostMapping
-    public String onWineSubmit(Model model, @Valid WineDTO wineDTO, BindingResult bindingResult) {
+    public String onWineSubmit(
+            Model model,
+            @Valid WineDTO wineDTO,
+            BindingResult bindingResult) {
 
         System.out.println("running onWineSubmit()");
 
         if (bindingResult.hasErrors()) {
 
-            System.out.println("There are validation errors, please fix it");
+            System.out.println("There are validation errors, please fix them");
 
             List<ObjectError> errors = bindingResult.getAllErrors();
 
@@ -43,18 +45,27 @@ public class WineComponent {
 
         } else {
 
-            model.addAttribute("message", "Wine registered successfully");
-
-            System.out.println("no validation errors");
+            System.out.println("No validation errors");
             System.out.println(wineDTO);
 
             this.wineService.validateAndSave(wineDTO);
 
+            model.addAttribute("message", "Wine registered successfully");
             model.addAttribute("wineDTO", new WineDTO());
         }
 
-        return "Wine.jsp";
+        return "Wine";
     }
 
+    @GetMapping("/showAll")
+    public String showAll(Model model) {
 
+        System.out.println("running showAll in WineComponent");
+
+        List<WineDTO> wineDTOList = this.wineService.findAll();
+
+        model.addAttribute("wineDTOList", wineDTOList);
+
+        return "WineDisplay";
+    }
 }

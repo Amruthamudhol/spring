@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @ToString
 @Entity
 @Table(name = "Wine")
+@NamedQuery(name = "findAll", query = "SELECT w FROM WineEntity w")
 public class WineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

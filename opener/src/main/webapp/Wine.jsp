@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Wine</title>
@@ -15,7 +15,11 @@
     <p style="color:green">${message}</p>
 </c:if>
 
-<form action="wine" method="post">
+<a href="${pageContext.request.contextPath}/wine/showAll">
+    Show All
+</a>
+
+<form action="${pageContext.request.contextPath}/wine" method="post">
 
     <label>Company Name</label>
     <input type="text"
@@ -47,11 +51,9 @@
 </form>
 
 <div style="color:red">
-
     <c:forEach items="${validationErrors}" var="objectError">
         <p>${objectError.defaultMessage}</p>
     </c:forEach>
-
 </div>
 
 </body>
