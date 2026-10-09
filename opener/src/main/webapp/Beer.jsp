@@ -16,7 +16,9 @@
     <div class="card shadow p-4">
 
         <h2 class="text-center mb-4">Beer Registration</h2>
-
+<a href="${pageContext.request.contextPath}/beer/showAll">
+    Show All
+</a>
         <form action="beer" method="post">
 
             <!-- Company Name -->

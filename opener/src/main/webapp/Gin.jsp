@@ -213,6 +213,10 @@
                     Register Gin
                 </button>
 
+                <a href="${pageContext.request.contextPath}/gin/showAll">
+                    Show All
+                </a>
+
             </div>
 
         </form>

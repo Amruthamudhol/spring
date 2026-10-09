@@ -39,35 +39,11 @@ public class GinComponent {
 
         System.out.println("running oninit()");
 
-        ginTypes = Stream.of(
-                "London Dry",
-                "Plymouth",
-                "Old Tom"
-        ).collect(Collectors.toList());
-
-        bottleSizes = Stream.of(
-                "375ml",
-                "500ml",
-                "750ml",
-                "1L"
-        ).collect(Collectors.toList());
-
-        countries = Stream.of(
-                "India",
-                "UK",
-                "USA"
-        ).collect(Collectors.toList());
-
-        qualities = Stream.of(
-                "Premium",
-                "Standard"
-        ).collect(Collectors.toList());
-
-        availability = Stream.of(
-                true,
-                false
-        ).collect(Collectors.toList());
-    }
+        ginTypes = Stream.of("London Dry", "Plymouth", "Old Tom").collect(Collectors.toList());
+        bottleSizes = Stream.of("375ml", "500ml", "750ml", "1L").collect(Collectors.toList());
+        countries = Stream.of("India", "UK", "USA").collect(Collectors.toList());
+        qualities = Stream.of("Premium", "Standard").collect(Collectors.toList());
+        availability = Stream.of(true, false).collect(Collectors.toList());}
 
     @GetMapping
     public String onGin(Model model) {
@@ -82,26 +58,20 @@ public class GinComponent {
 
         model.addAttribute("ginDTO", new GinDTO());
 
-        return "Gin.jsp";
+        return "Gin";
     }
 
     @PostMapping
-    public String onGinSubmit(
-            Model model,
-            @Valid GinDTO ginDTO,
-            BindingResult bindingResult) {
+    public String onGinSubmit(Model model, @Valid GinDTO ginDTO, BindingResult bindingResult) {
 
         System.out.println("running onGinSubmit()");
         System.out.println("GinDTO --> " + ginDTO);
 
         if (bindingResult.hasErrors()) {
 
-            System.out.println(
-                    "There are validation errors, please fix it"
-            );
+            System.out.println("There are validation errors, please fix it");
 
-            List<ObjectError> errors =
-                    bindingResult.getAllErrors();
+            List<ObjectError> errors = bindingResult.getAllErrors();
 
             model.addAttribute("validationErrors", errors);
             model.addAttribute("ginDTO", ginDTO);
@@ -112,15 +82,9 @@ public class GinComponent {
 
             this.ginService.validateAndSave(ginDTO);
 
-            model.addAttribute(
-                    "message",
-                    "Gin registered successfully"
-            );
+            model.addAttribute("message", "Gin registered successfully");
 
-            model.addAttribute(
-                    "ginDTO",
-                    new GinDTO()
-            );
+            model.addAttribute("ginDTO", new GinDTO());
         }
 
         model.addAttribute("ginTypes", ginTypes);
@@ -129,6 +93,16 @@ public class GinComponent {
         model.addAttribute("qualities", qualities);
         model.addAttribute("availability", availability);
 
-        return "Gin.jsp";
+        return "Gin";
+    }
+
+    @GetMapping("/showAll")
+    public String showAll(Model model) {
+
+        System.out.println("running showAll in GinComponent");
+        List<GinDTO> ginDTOList = this.ginService.findAll();
+        model.addAttribute("ginDTOList", ginDTOList);
+
+        return "GinDisplay";
     }
 }

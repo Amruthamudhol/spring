@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "whiskey")
+@NamedQuery(name = "FindAllWhiskey" ,query = "select w from WhiskeyEntity w")
 public class WhiskeyEntity {
 
     @Id

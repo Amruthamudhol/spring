@@ -76,7 +76,7 @@ public class VodkaComponent {
         model.addAttribute("qualities", qualities);
         model.addAttribute("availability", availability);
 
-        return "Vodka.jsp";
+        return "Vodka";
     }
 
 
@@ -92,6 +92,6 @@ public class VodkaComponent {
 
         model.addAttribute("vodkaDTO", new VodkaDTO());
 
-        return "Vodka.jsp";
+        return "Vodka";
     }
 }

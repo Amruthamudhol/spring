@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Beer")
 @ToString
+@NamedQuery(name = "selectAll", query = "select b from BeerEntity b")
 public class BeerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

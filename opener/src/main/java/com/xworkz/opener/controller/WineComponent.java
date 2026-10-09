@@ -27,19 +27,12 @@ public class WineComponent {
     }
 
     @PostMapping
-    public String onWineSubmit(
-            Model model,
-            @Valid WineDTO wineDTO,
-            BindingResult bindingResult) {
-
+    public String onWineSubmit(Model model, @Valid WineDTO wineDTO, BindingResult bindingResult) {
         System.out.println("running onWineSubmit()");
 
         if (bindingResult.hasErrors()) {
-
             System.out.println("There are validation errors, please fix them");
-
             List<ObjectError> errors = bindingResult.getAllErrors();
-
             model.addAttribute("validationErrors", errors);
             model.addAttribute("wineDTO", wineDTO);
 
@@ -47,7 +40,6 @@ public class WineComponent {
 
             System.out.println("No validation errors");
             System.out.println(wineDTO);
-
             this.wineService.validateAndSave(wineDTO);
 
             model.addAttribute("message", "Wine registered successfully");
@@ -68,4 +60,7 @@ public class WineComponent {
 
         return "WineDisplay";
     }
+
+
+
 }

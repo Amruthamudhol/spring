@@ -93,6 +93,10 @@
             <p class="text-success mt-3">${message}</p>
         </c:if>
 
+        <a href="${pageContext.request.contextPath}/whiskey/showAll">
+            Show All
+        </a>
+
     </div>
 
 </div>

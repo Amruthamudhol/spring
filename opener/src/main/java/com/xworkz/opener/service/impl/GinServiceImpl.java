@@ -9,6 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @Transactional
 public class GinServiceImpl implements GinService {
@@ -31,5 +36,29 @@ public class GinServiceImpl implements GinService {
         }
 
         return false;
+    }
+
+    @Override
+    public List<GinDTO> findAll() {
+
+        System.out.println("Running findAll() in GinServiceImpl");
+
+        List<GinEntity> ginEntityList = this.ginRepo.findAll();
+        List<GinDTO> ginDTOList = new ArrayList<>();
+
+        if (ginEntityList != null ) {
+
+            ginDTOList = ginEntityList.stream()
+                    .map(ginEntity -> {
+                        GinDTO ginDTO = new GinDTO();
+                        BeanUtils.copyProperties(ginEntity, ginDTO);
+                        return ginDTO;
+                    })
+                    .collect(Collectors.toList());
+        }
+
+        System.out.println("GinDTOList total: " + ginDTOList.size());
+
+        return ginDTOList;
     }
 }

@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @Table(name = "gin")
+@NamedQuery(name = "readAll", query = "select g from GinEntity g")
 public class GinEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

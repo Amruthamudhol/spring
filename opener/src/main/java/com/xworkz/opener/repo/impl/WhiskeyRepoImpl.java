@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Component
 public class WhiskeyRepoImpl implements WhiskeyRepo {
@@ -24,5 +25,14 @@ public class WhiskeyRepoImpl implements WhiskeyRepo {
         entityManager.persist(whiskeyEntity);
 
         return true;
+    }
+
+    @Override
+    public List<WhiskeyEntity> findAll() {
+        System.out.println("findAll() called in WhiskeyRepoImpl()");
+        List<WhiskeyEntity> whiskeyEntities = entityManager
+                .createNamedQuery("FindAllWhiskey", WhiskeyEntity.class)
+                .getResultList();
+        return whiskeyEntities;
     }
 }

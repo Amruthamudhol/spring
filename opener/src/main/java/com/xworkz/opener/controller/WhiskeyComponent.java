@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -44,6 +45,18 @@ public class WhiskeyComponent {
             model.addAttribute("whiskeyDTO", new WhiskeyDTO());
         }
 
-        return "Whiskey.jsp";
+        return "Whiskey";
+    }
+
+    @GetMapping("/showAll")
+    public String showAll(Model model) {
+
+        System.out.println("Running showAll in WhiskeyComponent");
+
+        List<WhiskeyDTO> whiskeyDTOList = this.whiskeyService.findAll();
+
+        model.addAttribute("whiskeyDTOList", whiskeyDTOList);
+
+        return "WhiskeyDisplay";
     }
 }
