@@ -217,6 +217,8 @@
                     Show All
                 </a>
 
+                 <span class="text-danger">${error}</span>
+
             </div>
 
         </form>

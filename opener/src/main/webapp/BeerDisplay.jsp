@@ -81,6 +81,7 @@
                         <th>Beer Type</th>
                         <th>Manufacturing Date</th>
                         <th>Price</th>
+                         <th>Edit</th>
                     </tr>
                     </thead>
 
@@ -93,6 +94,9 @@
                             <td>${beerDTO.beerType}</td>
                             <td>${beerDTO.manfDate}</td>
                             <td>${beerDTO.price}</td>
+                             <td>
+                              <a href="${pageContext.request.contextPath}/beer/edit?id=${beerDTO.id}"
+                                class="btn btn-sm btn-primary">Edit </a> </td>
                         </tr>
                     </c:forEach>
 

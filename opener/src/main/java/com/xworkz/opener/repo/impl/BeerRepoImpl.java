@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class BeerRepoImpl implements BeerRepo {
@@ -35,6 +36,13 @@ public class BeerRepoImpl implements BeerRepo {
 
         System.out.println("wineEntityList total: " + beerEntityList.size());
         return beerEntityList;
+    }
+
+    @Override
+    public Optional<BeerEntity> findById(int id) {
+        System.out.println("findById() called in BeerRepoImpl");
+        BeerEntity beerEntity = this.entityManager.find(BeerEntity.class, id);
+        return Optional.ofNullable(beerEntity);
     }
 
     public BeerRepoImpl() {

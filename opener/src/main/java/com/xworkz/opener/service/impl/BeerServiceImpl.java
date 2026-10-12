@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -62,5 +63,22 @@ public class BeerServiceImpl implements BeerService {
 
         return beerDTOList;
 
+    }
+
+    @Override
+    public BeerDTO findById(int id) {
+        System.out.println("The findById() method is called in service");
+        if (id>0){
+            System.out.println("id is valid");
+            Optional<BeerEntity> optional = this.beerRepo.findById(id);
+            if(optional.isPresent()){
+                BeerEntity beerEntity = optional.get();
+                BeerDTO beerDTO = new BeerDTO();
+                BeanUtils.copyProperties(beerEntity, beerDTO);
+                return beerDTO;
+            }
+        }
+        System.out.println("id is invalid");
+        return null;
     }
 }

@@ -130,6 +130,7 @@
                 </div>
 
             </form>
+ <span class="text-danger">${error}</span>
 
             <div class="text-danger mt-3">
                 <c:forEach items="${validationErrors}" var="objectError">

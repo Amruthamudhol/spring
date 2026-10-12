@@ -10,6 +10,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -61,6 +62,18 @@ public class BeerComponent {
         model.addAttribute("beerDTOList", beerDTOList);
 
         return "BeerDisplay";
+    }
+
+    @GetMapping("/edit")
+    public String editBeer (Model model, @RequestParam int id) {
+        System.out.println("running editBeer in BeerComponent");
+        BeerDTO beerDTO = this.beerService.findById(id);
+        if (beerDTO != null) {
+            model.addAttribute("beerDTO", beerDTO);
+        }else {
+            model.addAttribute("error", "Beer not found with id" +id);
+        }
+          return "Beer";
     }
 
 }

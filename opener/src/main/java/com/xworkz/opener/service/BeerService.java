@@ -8,4 +8,5 @@ import java.util.List;
 public interface BeerService {
     boolean validateAndSave(BeerDTO beerDTO);
     List<BeerDTO> findAll();
+    BeerDTO findById(int id);
 }

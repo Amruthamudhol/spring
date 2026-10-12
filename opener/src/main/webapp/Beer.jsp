@@ -82,6 +82,8 @@
 
         </form>
 
+       <span class="text-danger">${error}</span>
+
         <c:if test="${not empty message}">
             <div class="alert alert-success mt-3">
                 ${message}
