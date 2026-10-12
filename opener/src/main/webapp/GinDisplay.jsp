@@ -85,6 +85,7 @@
                         <th>Country</th>
                         <th>Quality</th>
                         <th>Availability</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
 
@@ -111,6 +112,11 @@
                                     </c:otherwise>
                                 </c:choose>
                             </td>
+
+                             <td>
+                               <a href="${pageContext.request.contextPath}/gin/edit?id=${ginDTO.id}"
+                                  class="btn btn-sm btn-primary"> Edit </a>
+                                  </td>
                         </tr>
                     </c:forEach>
 

@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -61,6 +62,22 @@ public class WineComponent {
         return "WineDisplay";
     }
 
+    @GetMapping("/edit")
+    public String editWine(@RequestParam("id") Integer id, Model model) {
+
+        System.out.println("Running editWine in WineComponent");
+        System.out.println("Wine ID: " + id);
+
+        WineDTO wineDTO = this.wineService.findById(id);
+
+        if (wineDTO != null) {
+            model.addAttribute("wineDTO", wineDTO);
+        } else {
+            model.addAttribute("error", "Wine not found with ID: " + id);
+        }
+
+        return "Wine";
+    }
 
 
 }

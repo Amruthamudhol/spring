@@ -9,4 +9,6 @@ public interface WhiskeyService {
     boolean validateAndSave(WhiskeyDTO whiskeyDTO);
 
     List<WhiskeyDTO> findAll();
+
+    WhiskeyDTO findById(Integer id);
 }

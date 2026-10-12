@@ -12,6 +12,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Data
 public class WhiskeyDTO {
 
+    private Integer id;
+
     @NotBlank
     private String brandName;
 

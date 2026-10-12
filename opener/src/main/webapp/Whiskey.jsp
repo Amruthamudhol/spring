@@ -19,6 +19,7 @@
 
         <h2 class="text-center mb-4">Whiskey Form</h2>
 
+
         <form action="whiskey" method="post">
 
             <!-- Brand Name -->
@@ -96,6 +97,8 @@
         <a href="${pageContext.request.contextPath}/whiskey/showAll">
             Show All
         </a>
+
+       <span class="text-danger">${error}</span>
 
     </div>
 

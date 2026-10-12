@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Whiskey Details</title>
+    <title>Beer Details</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +19,11 @@
             min-height: 100vh;
         }
 
-        .whiskey-container {
+        .beer-container {
             margin-top: 50px;
         }
 
-        .whiskey-heading {
+        .beer-heading {
             color: #6d4c41;
             font-weight: bold;
         }
@@ -46,12 +46,12 @@
             overflow: hidden;
         }
 
-        .btn-whiskey {
+        .btn-beer {
             background-color: #6d4c41;
             color: white;
         }
 
-        .btn-whiskey:hover {
+        .btn-beer:hover {
             background-color: #4e342e;
             color: white;
         }
@@ -60,14 +60,14 @@
 
 <body>
 
-<div class="container whiskey-container">
+<div class="container beer-container">
 
     <div class="card shadow-lg">
 
         <div class="card-body p-4">
 
-            <h2 class="text-center whiskey-heading mb-4">
-                Whiskey Details
+            <h2 class="text-center beer-heading mb-4">
+                Beer Details
             </h2>
 
             <div class="table-responsive">
@@ -76,30 +76,30 @@
 
                     <thead>
                     <tr>
+                        <th>Company Name</th>
                         <th>Brand Name</th>
-                        <th>Whiskey Type</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th>Beer Type</th>
                         <th>Manufacturing Date</th>
+                        <th>Price</th>
                     </tr>
                     </thead>
 
                     <tbody>
 
-                    <c:forEach items="${whiskeyDTOList}" var="whiskeyDTO">
+                    <c:forEach items="${beerDTOList}" var="beerDTO">
                         <tr>
-                            <td>${whiskeyDTO.brandName}</td>
-                            <td>${whiskeyDTO.whiskeyType}</td>
-                            <td>${whiskeyDTO.price}</td>
-                            <td>${whiskeyDTO.quantity}</td>
-                            <td>${whiskeyDTO.manufacturingDate}</td>
+                            <td>${beerDTO.companyName}</td>
+                            <td>${beerDTO.brandName}</td>
+                            <td>${beerDTO.beerType}</td>
+                            <td>${beerDTO.manfDate}</td>
+                            <td>${beerDTO.price}</td>
                         </tr>
                     </c:forEach>
 
-                    <c:if test="${empty whiskeyDTOList}">
+                    <c:if test="${empty beerDTOList}">
                         <tr>
                             <td colspan="5" class="text-center text-muted py-4">
-                                No whiskey records found.
+                                No beer records found.
                             </td>
                         </tr>
                     </c:if>
@@ -112,9 +112,9 @@
 
             <div class="text-center mt-4">
 
-                <a href="${pageContext.request.contextPath}/Whiskey.jsp"
-                   class="btn btn-whiskey px-4">
-                    Back to Whiskey Form
+                <a href="${pageContext.request.contextPath}/Beer.jsp"
+                   class="btn btn-beer px-4">
+                    Back to Beer Form
                 </a>
 
             </div>

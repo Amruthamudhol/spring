@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,13 +25,15 @@ public class WineServiceImpl implements WineService {
     @Override
     public boolean validateAndSave(WineDTO wineDTO) {
 
-        System.out.println("running validateAndSave()");
+        System.out.println("Running validateAndSave()");
 
         if (wineDTO != null) {
 
-            System.out.println("Converting dto into entity");
+            System.out.println("Saving new Wine record");
+
             WineEntity wineEntity = new WineEntity();
             BeanUtils.copyProperties(wineDTO, wineEntity);
+
             this.wineRepo.save(wineEntity);
 
             return true;
@@ -48,7 +51,6 @@ public class WineServiceImpl implements WineService {
         List<WineDTO> wineDTOList = new ArrayList<>();
 
         if (wineEntityList != null) {
-            System.out.println("Converting entities to DTOs");
 
             wineDTOList = wineEntityList.stream()
                     .map(entity -> {
@@ -63,4 +65,28 @@ public class WineServiceImpl implements WineService {
 
         return wineDTOList;
     }
+
+    @Override
+    public WineDTO findById(Integer id) {
+
+        System.out.println("The findById() method is called in service");
+
+        if ( id > 0) {
+
+            Optional<WineEntity> optional = this.wineRepo.findById(id);
+
+            if (optional.isPresent()) {
+                WineEntity wineEntity = optional.get();
+                WineDTO wineDTO = new WineDTO();
+                BeanUtils.copyProperties(wineEntity, wineDTO);
+
+                return wineDTO;
+            }
+        }
+
+        System.out.println("Invalid ID or Wine record not found");
+        return null;
+    }
+
+
 }

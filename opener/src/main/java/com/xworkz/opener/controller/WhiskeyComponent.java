@@ -59,4 +59,19 @@ public class WhiskeyComponent {
 
         return "WhiskeyDisplay";
     }
+
+    @GetMapping("/edit")
+    public String editWhiskey(Model model, Integer id) {
+
+        System.out.println("Running editWhiskey in WhiskeyComponent with id: " + id);
+        WhiskeyDTO whiskeyDTO = this.whiskeyService.findById(id);
+
+        if (whiskeyDTO != null) {
+            model.addAttribute("whiskeyDTO", whiskeyDTO);
+        } else {
+            model.addAttribute("error","Whiskey not found with id: " + id);
+        }
+
+        return "Whiskey";
+    }
 }

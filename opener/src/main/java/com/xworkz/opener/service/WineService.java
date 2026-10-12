@@ -7,4 +7,5 @@ import java.util.List;
 public interface WineService {
     boolean validateAndSave(WineDTO wineDTO);
     List<WineDTO> findAll();
+    WineDTO findById(Integer id);
 }

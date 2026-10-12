@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -55,5 +56,22 @@ public class WhiskeyServiceImpl implements WhiskeyService {
         System.out.println("Whiskey DTO list created successfully");
         System.out.println("Total whiskey DTOs: " + whiskeyDTOList.size());
         return whiskeyDTOList;
+    }
+
+    @Override
+    public WhiskeyDTO findById(Integer id) {
+        System.out.println("Executing findById() in WhiskeyServiceImpl with id: " + id);
+       if(id>0){
+           System.out.println("Id is +ve , we will invoke repo");
+           Optional<WhiskeyEntity>optional = this.whiskeyRepo.findById(id);
+           if(optional.isPresent()){
+               WhiskeyEntity whiskeyEntity = optional.get();
+               WhiskeyDTO whiskeyDTO = new WhiskeyDTO();
+               BeanUtils.copyProperties(whiskeyEntity, whiskeyDTO);
+               return whiskeyDTO;
+           }
+       }
+        System.out.println("id is not +ve,data not there");
+        return null;
     }
 }

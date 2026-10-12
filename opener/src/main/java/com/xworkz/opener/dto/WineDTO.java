@@ -15,6 +15,7 @@ import java.util.Date;
 @Data
 public class WineDTO {
 
+        private Integer id;
         @NotBlank
         @Size(min = 3, max = 50,message = "Company name should be between 3 and 50 characters")
         private String companyName;

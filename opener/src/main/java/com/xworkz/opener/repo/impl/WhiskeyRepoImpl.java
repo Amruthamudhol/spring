@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class WhiskeyRepoImpl implements WhiskeyRepo {
@@ -34,5 +35,12 @@ public class WhiskeyRepoImpl implements WhiskeyRepo {
                 .createNamedQuery("FindAllWhiskey", WhiskeyEntity.class)
                 .getResultList();
         return whiskeyEntities;
+    }
+
+    @Override
+    public Optional<WhiskeyEntity> findById(Integer id) {
+        System.out.println("findById() called in WhiskeyRepoImpl() with id: " + id);
+        WhiskeyEntity whiskeyEntity = this.entityManager.find(WhiskeyEntity.class, id);
+        return Optional.ofNullable(whiskeyEntity);
     }
 }

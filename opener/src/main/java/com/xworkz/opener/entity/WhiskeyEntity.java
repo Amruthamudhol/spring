@@ -13,7 +13,7 @@ public class WhiskeyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "brand_name")
     private String brandName;

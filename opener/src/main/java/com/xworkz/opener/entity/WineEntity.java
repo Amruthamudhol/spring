@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class WineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "companyName")
     private String companyName;

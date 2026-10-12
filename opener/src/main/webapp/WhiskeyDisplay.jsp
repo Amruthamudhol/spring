@@ -81,6 +81,7 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Manufacturing Date</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
 
@@ -93,12 +94,18 @@
                             <td>${whiskeyDTO.price}</td>
                             <td>${whiskeyDTO.quantity}</td>
                             <td>${whiskeyDTO.manufacturingDate}</td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/whiskey/edit?id=${whiskeyDTO.id}"
+                                   class="btn btn-sm btn-primary">
+                                    Edit
+                                </a>
+                            </td>
                         </tr>
                     </c:forEach>
 
                     <c:if test="${empty whiskeyDTOList}">
                         <tr>
-                            <td colspan="5" class="text-center text-muted py-4">
+                            <td colspan="6" class="text-center text-muted py-4">
                                 No whiskey records found.
                             </td>
                         </tr>
