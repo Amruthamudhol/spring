@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -60,5 +61,23 @@ public class GinServiceImpl implements GinService {
         System.out.println("GinDTOList total: " + ginDTOList.size());
 
         return ginDTOList;
+    }
+
+    @Override
+    public GinDTO findById(int id) {
+        System.out.println("Running findById() in GinServiceImpl");
+        if (id>0){
+            System.out.println("Id is +ve , we will invoke repo");
+           Optional<GinEntity> optional = this.ginRepo.findById(id);
+           if (optional.isPresent()){
+               GinEntity ginEntity = optional.get();
+               GinDTO ginDTO = new GinDTO();
+               BeanUtils.copyProperties(ginEntity, ginDTO);
+               return  ginDTO;
+
+           }
+        }
+        System.out.println("id is not positive or data not there");
+        return null;
     }
 }

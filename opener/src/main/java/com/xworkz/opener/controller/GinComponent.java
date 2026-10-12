@@ -10,6 +10,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.PostConstruct;
 import javax.validation.Valid;
@@ -104,5 +105,17 @@ public class GinComponent {
         model.addAttribute("ginDTOList", ginDTOList);
 
         return "GinDisplay";
+    }
+
+    @GetMapping("/edit")
+    public String editGin(Model model, @RequestParam int id) {
+        System.out.println("running editGin in ginComponent");
+        GinDTO ginDTO = this.ginService.findById(id);
+        if (ginDTO != null) {
+            model.addAttribute("ginDTO", ginDTO);
+        } else {
+            model.addAttribute("error", "Gin not found with id" + id);
+        }
+        return  "Gin";
     }
 }

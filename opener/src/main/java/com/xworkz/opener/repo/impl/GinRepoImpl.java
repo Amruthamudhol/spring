@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class GinRepoImpl implements GinRepo {
@@ -30,5 +31,12 @@ public class GinRepoImpl implements GinRepo {
                 .createNamedQuery("readAll", GinEntity.class)
                 .getResultList();
         return ginEntityList;
+    }
+
+    @Override
+    public Optional<GinEntity> findById(int id) {
+        System.out.println("Running findById() in GinRepoImpl");
+        GinEntity ginEntity=this.entityManager.find(GinEntity.class, id);
+        return Optional.ofNullable(ginEntity);
     }
 }
