@@ -9,4 +9,5 @@ public interface GinService {
     boolean validateAndSave(GinDTO ginDTO);
     List<GinDTO> findAll();
     GinDTO findById(int id);
+    void remove(int id);
 }

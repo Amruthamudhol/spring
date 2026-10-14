@@ -164,5 +164,16 @@ public class GinComponent {
         return "GinUpdate";
     }
 
+    @PostMapping("/delete")
+    public String removeGin(@RequestParam("id") int id, Model model) {
+        System.out.println("Running removeGin in GinComponent");
+        ginService.remove(id);
+
+        model.addAttribute("message", "Gin removed successfully");
+        model.addAttribute("ginDTOList", ginService.findAll());
+
+        return "GinDisplay";
+    }
+
 
 }

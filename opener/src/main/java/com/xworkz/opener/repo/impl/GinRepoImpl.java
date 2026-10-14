@@ -39,4 +39,18 @@ public class GinRepoImpl implements GinRepo {
         GinEntity ginEntity=this.entityManager.find(GinEntity.class, id);
         return Optional.ofNullable(ginEntity);
     }
+
+
+    @Override
+    public void remove(int id) {
+        System.out.println("Running remove() in GinRepoImpl");
+        GinEntity ginEntity = entityManager.find(GinEntity.class, id);
+
+        if (ginEntity != null) {
+            entityManager.remove(ginEntity);
+            System.out.println("Gin removed successfully");
+        } else {
+            System.out.println("Gin not found");
+        }
+    }
 }

@@ -80,4 +80,11 @@ public class GinServiceImpl implements GinService {
         System.out.println("id is not positive or data not there");
         return null;
     }
+
+
+    @Override
+    public void remove(int id) {
+        System.out.println("Running remove() in GinServiceImpl");
+        ginRepo.remove(id);
+    }
 }

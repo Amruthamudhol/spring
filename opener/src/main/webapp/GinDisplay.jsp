@@ -117,6 +117,17 @@
                                <a href="${pageContext.request.contextPath}/gin/edit?id=${ginDTO.id}"
                                   class="btn btn-sm btn-primary"> Edit </a>
                                   </td>
+
+                             <td>
+                                 <form action="${pageContext.request.contextPath}/gin/delete"
+                                       method="post"
+                                       onsubmit="return confirm('Are you sure you want to remove this gin?')">
+
+                                     <input type="hidden" name="id" value="${ginDTO.id}">
+
+                                     <button type="submit">Remove</button>
+                                 </form>
+                             </td>
                         </tr>
                     </c:forEach>
 

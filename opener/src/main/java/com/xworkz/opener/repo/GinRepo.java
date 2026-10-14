@@ -9,4 +9,5 @@ public interface GinRepo {
     boolean save(GinEntity ginEntity);
     List<GinEntity> findAll();
     Optional<GinEntity> findById(int id);
+    void remove(int id);
 }
