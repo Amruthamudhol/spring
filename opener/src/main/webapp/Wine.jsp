@@ -118,14 +118,7 @@
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-wine px-4">
-                        <c:choose>
-                            <c:when test="${not empty wineDTO.id}">
-                                Update Wine
-                            </c:when>
-                            <c:otherwise>
-                                Save Wine
-                            </c:otherwise>
-                        </c:choose>
+                        Save Wine
                     </button>
                 </div>
 

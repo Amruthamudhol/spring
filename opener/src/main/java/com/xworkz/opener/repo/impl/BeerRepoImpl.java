@@ -21,8 +21,7 @@ public class BeerRepoImpl implements BeerRepo {
 
         System.out.println("created save() in BeerRepoImpl");
         System.out.println("BeerEntity : " + beerEntity);
-
-        entityManager.persist(beerEntity);
+        entityManager.merge(beerEntity);
 
         return true;
     }

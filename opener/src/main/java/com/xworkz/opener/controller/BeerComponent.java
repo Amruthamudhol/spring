@@ -73,7 +73,29 @@ public class BeerComponent {
         }else {
             model.addAttribute("error", "Beer not found with id" +id);
         }
-          return "Beer";
+          return "BeerUpdate";
     }
 
+    @PostMapping("/update")
+    public String updateBeer(Model model, @Valid BeerDTO beerDTO, BindingResult bindingResult) {
+
+        System.out.println("Running updateBeer in BeerComponent");
+
+        if (bindingResult.hasErrors()) {
+
+            System.out.println("There are validation errors");
+
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            model.addAttribute("validationErrors", errors);
+            model.addAttribute("beerDTO", beerDTO);
+            return "BeerUpdate";
+        }
+
+        System.out.println("No validation errors");
+        System.out.println(beerDTO);
+        this.beerService.validateAndSave(beerDTO);
+        model.addAttribute("message", "Beer updated successfully");
+        model.addAttribute("beerDTO", beerDTO);
+        return "Beer";
+    }
 }

@@ -72,6 +72,28 @@ public class WhiskeyComponent {
             model.addAttribute("error","Whiskey not found with id: " + id);
         }
 
+        return "WhiskeyUpdate";
+    }
+
+    @PostMapping("/update")
+    public String updateWhiskey(Model model, @Valid WhiskeyDTO whiskeyDTO, BindingResult bindingResult) {
+        System.out.println("Running updateWhiskey in WhiskeyComponent");
+        if (bindingResult.hasErrors()) {
+
+            System.out.println("There are validation errors, please fix it");
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            model.addAttribute("validationErrors", errors);
+            model.addAttribute("whiskeyDTO", whiskeyDTO);
+
+        } else {
+
+            model.addAttribute("message", "Whiskey updated successfully");
+            System.out.println("no validation errors");
+            System.out.println(whiskeyDTO);
+            this.whiskeyService.validateAndSave(whiskeyDTO);
+            model.addAttribute("whiskeyDTO", new WhiskeyDTO());
+        }
+
         return "Whiskey";
     }
 }

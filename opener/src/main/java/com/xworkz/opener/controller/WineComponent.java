@@ -76,8 +76,31 @@ public class WineComponent {
             model.addAttribute("error", "Wine not found with ID: " + id);
         }
 
+        return "WineUpdate";
+    }
+    @PostMapping("/update")
+    public String wineUpdate(Model model, @Valid WineDTO wineDTO,BindingResult bindingResult) {
+
+        System.out.println("Running wineUpdate in WineComponent");
+
+        if (bindingResult.hasErrors()) {
+
+            System.out.println("There are validation errors");
+
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            model.addAttribute("validationErrors", errors);
+            model.addAttribute("wineDTO", wineDTO);
+
+        } else {
+
+            System.out.println("No validation errors");
+            System.out.println(wineDTO);
+            wineService.validateAndSave(wineDTO);
+
+            model.addAttribute("message", "Wine updated successfully");
+            model.addAttribute("wineDTO", wineDTO);
+        }
+
         return "Wine";
     }
-
-
 }

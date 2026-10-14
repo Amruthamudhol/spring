@@ -23,7 +23,7 @@ public class WhiskeyRepoImpl implements WhiskeyRepo {
 
         System.out.println("Executing save() in WhiskeyRepoImpl");
         System.out.println("WhiskeyEntity:"+whiskeyEntity);
-        entityManager.persist(whiskeyEntity);
+        entityManager.merge(whiskeyEntity);
 
         return true;
     }

@@ -21,7 +21,7 @@ public class WineRepoImpl implements WineRepo {
     public boolean save(WineEntity wineEntity) {
         System.out.println("created save() in WineRepoImpl ");
         System.out.println("WineEntity :" + wineEntity);
-        entityManager.persist(wineEntity);
+        entityManager.merge(wineEntity);
         return  true;
 
     }

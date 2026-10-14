@@ -20,7 +20,7 @@ public class GinRepoImpl implements GinRepo {
     public boolean save(GinEntity ginEntity) {
         System.out.println("Running save() in GinRepoImpl ");
         System.out.println("GinEntity:"+ginEntity);
-        entityManager.persist(ginEntity);
+        entityManager.merge(ginEntity);
         return false;
     }
 

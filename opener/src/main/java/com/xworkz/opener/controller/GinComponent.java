@@ -64,13 +64,12 @@ public class GinComponent {
 
     @PostMapping
     public String onGinSubmit(Model model, @Valid GinDTO ginDTO, BindingResult bindingResult) {
-
-        System.out.println("running onGinSubmit()");
+        System.out.println("Running onGinSubmit()");
         System.out.println("GinDTO --> " + ginDTO);
 
         if (bindingResult.hasErrors()) {
 
-            System.out.println("There are validation errors, please fix it");
+            System.out.println("There are validation errors, please fix them");
 
             List<ObjectError> errors = bindingResult.getAllErrors();
 
@@ -79,15 +78,14 @@ public class GinComponent {
 
         } else {
 
-            System.out.println("no validation errors");
-
+            System.out.println("No validation errors");
             this.ginService.validateAndSave(ginDTO);
-
             model.addAttribute("message", "Gin registered successfully");
-
+            // Clear the form after successful registration
             model.addAttribute("ginDTO", new GinDTO());
         }
 
+        // Load dropdown options
         model.addAttribute("ginTypes", ginTypes);
         model.addAttribute("bottleSizes", bottleSizes);
         model.addAttribute("countries", countries);
@@ -96,7 +94,6 @@ public class GinComponent {
 
         return "Gin";
     }
-
     @GetMapping("/showAll")
     public String showAll(Model model) {
 
@@ -109,13 +106,63 @@ public class GinComponent {
 
     @GetMapping("/edit")
     public String editGin(Model model, @RequestParam int id) {
-        System.out.println("running editGin in ginComponent");
+
+        System.out.println("Running editGin in GinComponent");
+
         GinDTO ginDTO = this.ginService.findById(id);
+
         if (ginDTO != null) {
             model.addAttribute("ginDTO", ginDTO);
         } else {
-            model.addAttribute("error", "Gin not found with id" + id);
+            model.addAttribute("error", "Gin not found with id " + id);
         }
-        return  "Gin";
+
+        model.addAttribute("ginTypes", ginTypes);
+        model.addAttribute("bottleSizes", bottleSizes);
+        model.addAttribute("countries", countries);
+        model.addAttribute("qualities", qualities);
+        model.addAttribute("availability", availability);
+
+        return "GinUpdate";
     }
+
+
+    @PostMapping("/update")
+    public String updateGin(Model model,
+                            @Valid GinDTO ginDTO,
+                            BindingResult bindingResult) {
+
+        System.out.println("Running updateGin in GinComponent");
+
+        if (bindingResult.hasErrors()) {
+
+            System.out.println("There are validation errors, please fix them");
+
+            List<ObjectError> errors = bindingResult.getAllErrors();
+
+            model.addAttribute("validationErrors", errors);
+            model.addAttribute("ginDTO", ginDTO);
+
+        } else {
+
+            System.out.println("No validation errors");
+            System.out.println(ginDTO);
+
+            this.ginService.validateAndSave(ginDTO);
+
+            model.addAttribute("message", "Gin updated successfully");
+            model.addAttribute("ginDTO", ginDTO);
+        }
+
+        // Reload dropdown options
+        model.addAttribute("ginTypes", ginTypes);
+        model.addAttribute("bottleSizes", bottleSizes);
+        model.addAttribute("countries", countries);
+        model.addAttribute("qualities", qualities);
+        model.addAttribute("availability", availability);
+
+        return "GinUpdate";
+    }
+
+
 }
