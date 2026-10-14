@@ -98,4 +98,17 @@ public class BeerComponent {
         model.addAttribute("beerDTO", beerDTO);
         return "Beer";
     }
+
+
+    @PostMapping("/delete")
+    public String removeBeer(@RequestParam("id") int id, Model model) {
+        System.out.println("running removeBeer in BeerComponent");
+        System.out.println("id: " + id);
+
+        this.beerService.remove(id);
+        model.addAttribute("message", "Beer removed successfully");
+        model.addAttribute("beerDTOList", beerService.findAll());
+
+        return "BeerDisplay";
+    }
 }

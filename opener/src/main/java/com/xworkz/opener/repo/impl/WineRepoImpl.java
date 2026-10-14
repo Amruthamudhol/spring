@@ -44,6 +44,18 @@ public class WineRepoImpl implements WineRepo {
         return Optional.ofNullable(wineEntity);
     }
 
+    @Override
+    public void deleteById(Integer id) {
+        WineEntity wineEntity = entityManager.find(WineEntity.class, id);
+
+        if (wineEntity != null) {
+            entityManager.remove(wineEntity);
+            System.out.println("Wine deleted successfully");
+        } else {
+            System.out.println("Wine not found");
+        }
+    }
+
     public WineRepoImpl() {
         System.out.println("creted WineRepoImpl()");
     }

@@ -81,4 +81,9 @@ public class BeerServiceImpl implements BeerService {
         System.out.println("id is invalid");
         return null;
     }
+
+
+    public void remove(int id) {
+        beerRepo.remove(id);
+    }
 }

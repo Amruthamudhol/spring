@@ -10,4 +10,5 @@ public interface WineRepo {
     public boolean save(WineEntity wineEntity);
     List<WineEntity> findAll();
     Optional<WineEntity> findById(Integer id);
+    void deleteById(Integer id);
 }

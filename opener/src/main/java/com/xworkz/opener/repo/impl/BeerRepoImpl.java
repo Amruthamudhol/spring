@@ -44,6 +44,20 @@ public class BeerRepoImpl implements BeerRepo {
         return Optional.ofNullable(beerEntity);
     }
 
+
+    @Override
+    public void remove(int id) {
+
+        BeerEntity beerEntity = entityManager.find(BeerEntity.class, id);
+
+        if (beerEntity != null) {
+            entityManager.remove(beerEntity);
+            System.out.println("Beer removed successfully");
+        } else {
+            System.out.println("Beer not found");
+        }
+    }
+
     public BeerRepoImpl() {
         System.out.println("created BeerRepoImpl()");
     }

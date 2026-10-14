@@ -88,5 +88,10 @@ public class WineServiceImpl implements WineService {
         return null;
     }
 
+    @Override
+    public void deleteById(Integer id) {
+        wineRepo.deleteById(id);
+    }
+
 
 }

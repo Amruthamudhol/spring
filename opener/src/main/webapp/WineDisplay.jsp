@@ -89,9 +89,17 @@
                             <td>${wineDTO.age}</td>
                             <td>
                                 <a href="${pageContext.request.contextPath}/wine/edit?id=${wineDTO.id}"
-                                   class="btn btn-sm btn-primary">
-                                    Edit
-                                </a>
+                                   class="btn btn-sm btn-primary"> Edit </a>
+                            </td>
+
+                            <td>
+                                <form action="${pageContext.request.contextPath}/wine/delete" method="post"
+                                      onsubmit="return confirm('Are you sure you want to delete this wine?')">
+
+                                    <input type="hidden" name="id" value="${wineDTO.id}">
+
+                                    <button type="submit">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     </c:forEach>

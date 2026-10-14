@@ -103,4 +103,18 @@ public class WineComponent {
 
         return "Wine";
     }
+
+
+    @PostMapping("/delete")
+    public String deleteWine(@RequestParam("id") Integer id, Model model) {
+        System.out.println("Running deleteWine in WineComponent");
+
+        wineService.deleteById(id);
+        model.addAttribute("message", "Wine deleted successfully");
+
+        List<WineDTO> wineDTOList = wineService.findAll();
+        model.addAttribute("wineDTOList", wineDTOList);
+
+        return "WineDisplay";
+    }
 }

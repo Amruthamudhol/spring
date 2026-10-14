@@ -9,4 +9,5 @@ public interface BeerService {
     boolean validateAndSave(BeerDTO beerDTO);
     List<BeerDTO> findAll();
     BeerDTO findById(int id);
+    void remove(int id);
 }

@@ -8,4 +8,5 @@ public interface WineService {
     boolean validateAndSave(WineDTO wineDTO);
     List<WineDTO> findAll();
     WineDTO findById(Integer id);
+    void deleteById(Integer id);
 }

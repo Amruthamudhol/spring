@@ -11,4 +11,6 @@ public interface BeerRepo {
       boolean save(BeerEntity beerEntity);
       List<BeerEntity> findAll();
       Optional<BeerEntity> findById(int id);
+
+      void remove(int id);
 }

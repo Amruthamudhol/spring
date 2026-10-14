@@ -97,6 +97,18 @@
                              <td>
                               <a href="${pageContext.request.contextPath}/beer/edit?id=${beerDTO.id}"
                                 class="btn btn-sm btn-primary">Edit </a> </td>
+
+
+                                <td>
+                                    <form action="${pageContext.request.contextPath}/beer/delete"
+                                          method="post"
+                                          onsubmit="return confirm('Are you sure you want to delete this beer?')">
+
+                                        <input type="hidden" name="id" value="${beerDTO.id}">
+
+                                        <button type="submit">Remove</button>
+                                    </form>
+                                </td>
                         </tr>
                     </c:forEach>
 
