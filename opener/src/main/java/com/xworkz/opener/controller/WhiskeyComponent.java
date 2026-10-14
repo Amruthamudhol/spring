@@ -10,6 +10,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -95,5 +96,17 @@ public class WhiskeyComponent {
         }
 
         return "Whiskey";
+    }
+
+
+    @PostMapping("/delete")
+    public String removeWhiskey(@RequestParam("id") Integer id, Model model) {
+        System.out.println("Running removeWhiskey in WhiskeyComponent with id: " + id);
+        whiskeyService.remove(id);
+
+        model.addAttribute("message", "Whiskey removed successfully");
+        model.addAttribute("whiskeyDTOList", whiskeyService.findAll());
+
+        return "WhiskeyDisplay";
     }
 }

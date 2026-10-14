@@ -74,4 +74,10 @@ public class WhiskeyServiceImpl implements WhiskeyService {
         System.out.println("id is not +ve,data not there");
         return null;
     }
+
+    @Override
+    public void remove(Integer id) {
+        System.out.println("Executing remove() in WhiskeyServiceImpl with id: " + id);
+        whiskeyRepo.remove(id);
+    }
 }

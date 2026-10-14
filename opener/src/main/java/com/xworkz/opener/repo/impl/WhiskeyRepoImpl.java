@@ -43,4 +43,18 @@ public class WhiskeyRepoImpl implements WhiskeyRepo {
         WhiskeyEntity whiskeyEntity = this.entityManager.find(WhiskeyEntity.class, id);
         return Optional.ofNullable(whiskeyEntity);
     }
+
+
+    @Override
+    public void remove(Integer id) {
+
+        WhiskeyEntity whiskeyEntity = entityManager.find(WhiskeyEntity.class, id);
+
+        if (whiskeyEntity != null) {
+            entityManager.remove(whiskeyEntity);
+            System.out.println("Whiskey removed successfully");
+        } else {
+            System.out.println("Whiskey not found");
+        }
+    }
 }

@@ -10,4 +10,5 @@ public interface WhiskeyRepo {
     boolean save(WhiskeyEntity whiskeyEntity);
     List<WhiskeyEntity> findAll();
     Optional<WhiskeyEntity> findById(Integer id);
+    void remove(Integer id);
 }

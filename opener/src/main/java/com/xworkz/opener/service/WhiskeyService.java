@@ -11,4 +11,5 @@ public interface WhiskeyService {
     List<WhiskeyDTO> findAll();
 
     WhiskeyDTO findById(Integer id);
+    void remove(Integer id);
 }

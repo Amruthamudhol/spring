@@ -100,6 +100,17 @@
                                     Edit
                                 </a>
                             </td>
+
+                            <td>
+                                <form action="${pageContext.request.contextPath}/whiskey/delete"
+                                      method="post"
+                                      onsubmit="return confirm('Are you sure you want to remove this whiskey?')">
+
+                                    <input type="hidden" name="id" value="${whiskeyDTO.id}">
+
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
 
